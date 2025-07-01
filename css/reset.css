@@ -1,0 +1,265 @@
+/* ================================================
+   RESET CSS MINIMALISTE - PORTFOLIO PHOTOGRAPHE
+   ================================================
+   
+   Ce fichier complète le reset de base dans style.css
+   sans créer de conflits. Il est chargé AVANT style.css
+   ================================================ */
+
+/* -------------------------------------
+   1. RESET COMPLEMENTAIRE
+   ------------------------------------- */
+
+/* Reset box-sizing sur tous les éléments */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reset des marges sur les éléments HTML5 */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+    display: block;
+}
+
+/* Reset des listes quand utilisées pour la navigation/layout */
+ul[class],
+ol[class] {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Reset des styles de formulaire pour cohérence cross-browser */
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: inherit;
+    margin: 0;
+}
+
+/* Empêcher le redimensionnement horizontal des textarea */
+textarea {
+    resize: vertical;
+}
+
+/* Reset du style des boutons */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+    appearance: button;
+    cursor: pointer;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+/* Améliorer la cohérence du focus */
+:focus {
+    outline-offset: 2px;
+}
+
+/* Reset des éléments multimedia */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Empêcher les images de dépasser leur conteneur */
+img {
+    vertical-align: middle;
+}
+
+/* Reset des tableaux */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Reset des citations */
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+    content: '';
+    content: none;
+}
+
+/* Reset des éléments cachés */
+[hidden] {
+    display: none !important;
+}
+
+/* -------------------------------------
+   2. AMÉLIORATIONS D'ACCESSIBILITÉ
+   ------------------------------------- */
+
+/* Classe pour cacher visuellement mais garder pour les lecteurs d'écran */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* S'assurer que les liens sans href ne sont pas stylés comme des liens */
+a:not([href]),
+a:not([href]):hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* -------------------------------------
+   3. AMÉLIORATIONS TYPOGRAPHIQUES
+   ------------------------------------- */
+
+/* Améliorer le rendu du texte */
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* Éviter les problèmes avec les éléments pre */
+pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+    white-space: pre-wrap;
+}
+
+/* Reset des styles de code inline */
+code,
+kbd,
+samp {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+/* -------------------------------------
+   4. CORRECTIONS CROSS-BROWSER
+   ------------------------------------- */
+
+/* Correction pour IE11 */
+main {
+    display: block;
+}
+
+/* Correction du line-height dans les inputs sur iOS */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+textarea {
+    line-height: normal;
+}
+
+/* Supprimer l'ombre interne sur iOS */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Correction pour les éléments details */
+details {
+    display: block;
+}
+
+summary {
+    display: list-item;
+    cursor: pointer;
+}
+
+/* -------------------------------------
+   5. UTILITAIRES DE BASE
+   ------------------------------------- */
+
+/* Conteneur pour maintenir les proportions */
+.aspect-ratio-box {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.aspect-ratio-box::before {
+    content: "";
+    display: block;
+    padding-top: 100%; /* 1:1 par défaut */
+}
+
+.aspect-ratio-box > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Variations de ratio */
+.aspect-ratio-box--16-9::before { padding-top: 56.25%; }
+.aspect-ratio-box--4-3::before { padding-top: 75%; }
+.aspect-ratio-box--21-9::before { padding-top: 42.86%; }
+
+/* -------------------------------------
+   6. PRINT STYLES
+   ------------------------------------- */
+@media print {
+    *,
+    *::before,
+    *::after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+    
+    img {
+        max-width: 100% !important;
+    }
+    
+    @page {
+        margin: 0.5cm;
+    }
+}

@@ -1,0 +1,622 @@
+/* ================================================
+   PORTFOLIO PHOTOGRAPHE - ANIMATIONS AVANCÉES
+   ================================================ */
+
+/* -------------------------------------
+   1. CURSOR PERSONNALISÉ
+   ------------------------------------- */
+html {
+    cursor: none;
+}
+
+.cursor {
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    transition: all 0.1s ease;
+    transition-property: width, height, border;
+    z-index: 10000;
+    mix-blend-mode: difference;
+}
+
+.cursor-follower {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 9999;
+}
+
+/* États du cursor */
+.cursor.hover {
+    width: 40px;
+    height: 40px;
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.cursor.click {
+    width: 30px;
+    height: 30px;
+    border-color: rgba(255, 255, 255, 1);
+}
+
+/* Pour les éléments interactifs */
+a, button, .gallery-item {
+    cursor: none;
+}
+
+/* -------------------------------------
+   2. EFFETS PARALLAX
+   ------------------------------------- */
+.parallax-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-element {
+    will-change: transform;
+    transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Différentes vitesses de parallax */
+[data-parallax="slow"] {
+    transform: translateY(calc(var(--scroll-y) * 0.3px));
+}
+
+[data-parallax="medium"] {
+    transform: translateY(calc(var(--scroll-y) * 0.5px));
+}
+
+[data-parallax="fast"] {
+    transform: translateY(calc(var(--scroll-y) * 0.8px));
+}
+
+/* -------------------------------------
+   3. RÉVÉLATIONS AU SCROLL
+   ------------------------------------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Variantes de révélation */
+.reveal-left {
+    transform: translateX(-50px);
+}
+
+.reveal-right {
+    transform: translateX(50px);
+}
+
+.reveal-scale {
+    transform: scale(0.8);
+}
+
+.reveal-left.active,
+.reveal-right.active {
+    transform: translateX(0);
+}
+
+.reveal-scale.active {
+    transform: scale(1);
+}
+
+/* Délais pour créer des effets en cascade */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* -------------------------------------
+   4. EFFETS DE TEXTE
+   ------------------------------------- */
+/* Split text pour animations lettre par lettre */
+.split-text {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.split-text .char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.split-text.active .char {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Délais progressifs pour chaque caractère */
+.split-text .char:nth-child(1) { transition-delay: 0.05s; }
+.split-text .char:nth-child(2) { transition-delay: 0.1s; }
+.split-text .char:nth-child(3) { transition-delay: 0.15s; }
+.split-text .char:nth-child(4) { transition-delay: 0.2s; }
+.split-text .char:nth-child(5) { transition-delay: 0.25s; }
+.split-text .char:nth-child(6) { transition-delay: 0.3s; }
+.split-text .char:nth-child(7) { transition-delay: 0.35s; }
+.split-text .char:nth-child(8) { transition-delay: 0.4s; }
+.split-text .char:nth-child(9) { transition-delay: 0.45s; }
+.split-text .char:nth-child(10) { transition-delay: 0.5s; }
+
+/* Effet de glitch sur le texte */
+.glitch {
+    position: relative;
+    display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.glitch:hover::before {
+    animation: glitch-1 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    color: rgba(255, 0, 255, 0.8);
+    z-index: -1;
+}
+
+.glitch:hover::after {
+    animation: glitch-2 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+    color: rgba(0, 255, 255, 0.8);
+    z-index: -2;
+}
+
+@keyframes glitch-1 {
+    0% {
+        transform: translate(0);
+        opacity: 0;
+    }
+    20% {
+        transform: translate(-2px, 2px);
+        opacity: 1;
+    }
+    40% {
+        transform: translate(-2px, -2px);
+        opacity: 1;
+    }
+    60% {
+        transform: translate(2px, 2px);
+        opacity: 1;
+    }
+    80% {
+        transform: translate(2px, -2px);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0);
+        opacity: 0;
+    }
+}
+
+@keyframes glitch-2 {
+    0% {
+        transform: translate(0);
+        opacity: 0;
+    }
+    20% {
+        transform: translate(2px, -2px);
+        opacity: 1;
+    }
+    40% {
+        transform: translate(2px, 2px);
+        opacity: 1;
+    }
+    60% {
+        transform: translate(-2px, -2px);
+        opacity: 1;
+    }
+    80% {
+        transform: translate(-2px, 2px);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0);
+        opacity: 0;
+    }
+}
+
+/* -------------------------------------
+   5. EFFETS HERO SECTION
+   ------------------------------------- */
+/* Particules flottantes */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: float-particle linear infinite;
+}
+
+@keyframes float-particle {
+    from {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100vh) translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* Variantes de particules */
+.particle:nth-child(1) { left: 10%; animation-duration: 12s; animation-delay: 0s; }
+.particle:nth-child(2) { left: 20%; animation-duration: 15s; animation-delay: 1s; }
+.particle:nth-child(3) { left: 30%; animation-duration: 10s; animation-delay: 2s; }
+.particle:nth-child(4) { left: 40%; animation-duration: 18s; animation-delay: 0.5s; }
+.particle:nth-child(5) { left: 50%; animation-duration: 14s; animation-delay: 1.5s; }
+.particle:nth-child(6) { left: 60%; animation-duration: 16s; animation-delay: 0.8s; }
+.particle:nth-child(7) { left: 70%; animation-duration: 11s; animation-delay: 2.5s; }
+.particle:nth-child(8) { left: 80%; animation-duration: 13s; animation-delay: 1.2s; }
+.particle:nth-child(9) { left: 90%; animation-duration: 17s; animation-delay: 0.3s; }
+.particle:nth-child(10) { left: 95%; animation-duration: 12s; animation-delay: 2s; }
+
+/* -------------------------------------
+   6. EFFETS GALERIE AVANCÉS
+   ------------------------------------- */
+/* Effet de zoom magnétique */
+.gallery-item {
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.gallery-item:hover::before {
+    width: 300%;
+    height: 300%;
+}
+
+/* Effet de distorsion sur les images */
+.gallery-item img {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+    filter: contrast(1.2) brightness(0.9);
+}
+
+/* Transition de filtre de galerie */
+.gallery-item {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
+.gallery-item.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* -------------------------------------
+   7. EFFETS DE TRANSITION DE PAGE
+   ------------------------------------- */
+/* Overlay de transition */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--color-bg-primary);
+    z-index: 10000;
+    pointer-events: none;
+    transform: scaleY(0);
+    transform-origin: bottom;
+}
+
+.page-transition.active {
+    animation: pageTransition 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+@keyframes pageTransition {
+    0% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+    50% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+    51% {
+        transform-origin: top;
+    }
+    100% {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+}
+
+/* -------------------------------------
+   8. EFFETS DE SURVOL AVANCÉS
+   ------------------------------------- */
+/* Effet magnétique sur les boutons */
+.magnetic-button {
+    position: relative;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Effet de remplissage liquide */
+.liquid-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.liquid-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: var(--color-accent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.liquid-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.liquid-button span {
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.liquid-button:hover span {
+    color: var(--color-bg-primary);
+}
+
+/* -------------------------------------
+   9. LOADING ANIMATIONS
+   ------------------------------------- */
+/* Barres de chargement créatives */
+.loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 9999;
+}
+
+.loading-progress {
+    height: 100%;
+    background: var(--color-accent);
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+/* Animation de skeleton loading */
+.skeleton {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.skeleton::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.05),
+        transparent
+    );
+    animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* -------------------------------------
+   10. EFFETS D'AMBIANCE
+   ------------------------------------- */
+/* Effet de grain de film */
+.grain {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.grain::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj4KICA8ZmlsdGVyIGlkPSJub2lzZSI+CiAgICA8ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC45IiBudW1PY3RhdmVzPSI0IiAvPgogIDwvZmlsdGVyPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjAuMDIiLz4KPC9zdmc+');
+    animation: grain 8s steps(10) infinite;
+    opacity: 0.15;
+}
+
+@keyframes grain {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -10%); }
+    20% { transform: translate(-15%, 5%); }
+    30% { transform: translate(7%, -25%); }
+    40% { transform: translate(-5%, 25%); }
+    50% { transform: translate(-15%, 10%); }
+    60% { transform: translate(15%, 0%); }
+    70% { transform: translate(0%, 15%); }
+    80% { transform: translate(3%, 25%); }
+    90% { transform: translate(-10%, 10%); }
+}
+
+/* Effet de vignette dynamique */
+.vignette {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 0%,
+        transparent 40%,
+        rgba(0, 0, 0, 0.2) 100%
+    );
+    z-index: 2;
+    animation: vignette-pulse 4s ease-in-out infinite;
+}
+
+@keyframes vignette-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* -------------------------------------
+   11. SMOOTH SCROLL INDICATOR
+   ------------------------------------- */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 100;
+}
+
+.scroll-progress-bar {
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        var(--color-accent) 0%,
+        rgba(255, 255, 255, 0.5) 100%
+    );
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* -------------------------------------
+   12. MEDIA QUERIES ANIMATIONS
+   ------------------------------------- */
+@media (max-width: 768px) {
+    /* Désactiver certains effets sur mobile pour les performances */
+    .parallax-element {
+        transform: none !important;
+    }
+    
+    .grain::after {
+        display: none;
+    }
+    
+    .particles {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    /* Respecter les préférences d'accessibilité */
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .cursor,
+    .cursor-follower {
+        display: none;
+    }
+}
+
+/* -------------------------------------
+   13. PERFORMANCE OPTIMISATIONS
+   ------------------------------------- */
+/* Utiliser will-change avec parcimonie */
+.gallery-item:hover {
+    will-change: transform;
+}
+
+.reveal.active {
+    will-change: auto;
+}
+
+/* GPU acceleration pour les animations critiques */
+.parallax-element,
+.particle,
+.gallery-item img {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio mystérieux d'un photographe anonyme capturant l'invisible">
+    <meta name="keywords" content="photographie, art, mystère, portfolio">
+    <meta name="author" content="L'Œil Invisible">
+    
+    <!-- Titre affiché dans l'onglet -->
+    <title>L'Œil Invisible - Capturer l'Insaisissable</title>
+    
+    <!-- Favicon (à ajouter plus tard) -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- Feuilles de style -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- Préchargement des polices pour performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    
+    <!-- Loader de chargement initial -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-circle"></div>
+            <p class="loader-text">Révélation en cours...</p>
+        </div>
+    </div>
+
+    <!-- Navigation principale -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <!-- Logo/Nom mystérieux -->
+            <div class="nav-logo">
+                <span class="logo-text">L'Œil</span>
+            </div>
+            
+            <!-- Menu de navigation -->
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#gallery" class="nav-link">Galerie</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">À propos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            
+            <!-- Burger menu pour mobile -->
+            <div class="nav-burger" id="navBurger">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Hero avec phrase d'accroche -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <!-- Image de fond avec overlay -->
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line">Je capture</span>
+                <span class="title-line">l'invisible</span>
+            </h1>
+            <p class="hero-subtitle">
+                Là où les ombres murmurent leurs secrets
+            </p>
+            
+            <!-- Call to action -->
+            <a href="#gallery" class="hero-cta">
+                <span>Explorer</span>
+                <svg class="cta-arrow" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M12 17V3M12 17l-5-5M12 17l5-5" stroke="currentColor" stroke-width="2" fill="none"/>
+                </svg>
+            </a>
+        </div>
+        
+        <!-- Indicateur de scroll -->
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Galerie -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">01</span>
+                <span class="title-text">Fragments capturés</span>
+            </h2>
+            
+            <!-- Filtres de galerie -->
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">Tout</button>
+                <button class="filter-btn" data-filter="shadows">Ombres</button>
+                <button class="filter-btn" data-filter="light">Lumière</button>
+                <button class="filter-btn" data-filter="abstract">Abstrait</button>
+            </div>
+            
+            <!-- Grille de photos -->
+            <div class="gallery-grid">
+                <!-- OMBRES -->
+                <!-- Photo 1 - Ombres -->
+                <div class="gallery-item" data-category="shadows">
+                    <img src="https://i.pinimg.com/736x/16/a0/f5/16a0f59bee969f33f650bbce9ec45239.jpg" alt="Ombre mystérieuse" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="photo-title">Murmures</h3>
+                        <p class="photo-date">2024</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 2 - Ombres (tall) -->
+                <div class="gallery-item gallery-item--tall" data-category="shadows">
+                    <img src="https://i.pinimg.com/736x/10/64/0a/10640a6419eb0eac4edc7019da509d8e.jpg" alt="Silhouette énigmatique" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="photo-title">Présence</h3>
+                        <p class="photo-date">2024</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 3 - Ombres -->
+                <div class="gallery-item" data-category="shadows">
+                    <img src="https://i.pinimg.com/736x/e4/7c/ce/e47cced5bb4ac1eaf6a96bc311565c5d.jpg" alt="Ombre urbaine" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="photo-title">Fantôme urbain</h3>
+                        <p class="photo-date">2023</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 4 - Ombres (wide) -->
+                <div class="gallery-item gallery-item--wide" data-category="shadows">
+                    <img src="https://i.pinimg.com/736x/9f/d0/73/9fd073ce14b73e5710abd2972cfc9e9b.jpg" alt="Silhouettes multiples" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="photo-title">Danse macabre</h3>
+                        <p class="photo-date">2024</p>
+                    </div>
+                </div>
+                
+                <!-- LUMIÈRE -->
+                <!-- Photo 5 - Lumière -->
+                <div class="gallery-item" data-category="light">
+                    <img src="https://i.pinimg.com/736x/4a/a0/2a/4aa02ab7d869339ef6f4a0cec9e3a285.jpg" alt="Jeu de lumière" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="photo-title">Éclat fugace</h3>
+                        <p class="photo-date">2024</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 6 - Lumière -->
+                <div class="gallery-item" data-category="light">
+                    <img src="https://i.pinimg.com/736x/39/0c/45/390c455828e2dc86c8f0fddc44d0abb3.jpg" alt="Reflets secrets" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="photo-title">Miroir liquide</h3>
+                        <p class="photo-date">2023</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 7 - Lumière (tall) -->
+                <div class="gallery-item gallery-item--tall" data-category="light">
+                    <img src="https://i.pinimg.com/736x/06/e1/8a/06e18a56e234134eec3284044ebb67af.jpg" alt="Rayons mystiques" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="photo-title">Révélation</h3>
+                        <p class="photo-date">2024</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 8 - Lumière -->
+                <div class="gallery-item" data-category="light">
+                    <img src="https://i.pinimg.com/736x/1e/fd/8c/1efd8c9781d8cef0b4184d8c7398a90a.jpg" alt="Lumière diffuse" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="photo-title">Halo nocturne</h3>
+                        <p class="photo-date">2023</p>
+                    </div>
+                </div>
+                
+                <!-- ABSTRAIT -->
+                <!-- Photo 9 - Abstrait (wide) -->
+                <div class="gallery-item gallery-item--wide" data-category="abstract">
+                    <img src="https://i.pinimg.com/736x/bf/c5/5e/bfc55e951b4a9439f5fcbbd77284fff0.jpg" alt="Abstraction urbaine" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="photo-title">Géométrie cachée</h3>
+                        <p class="photo-date">2023</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 10 - Abstrait -->
+                <div class="gallery-item" data-category="abstract">
+                    <img src="https://i.pinimg.com/736x/31/0e/46/310e4635489003e800a480cb05e38172.jpg" alt="Texture mystère" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="photo-title">Texture du temps</h3>
+                        <p class="photo-date">2024</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 11 - Abstrait -->
+                <div class="gallery-item" data-category="abstract">
+                    <img src="https://i.pinimg.com/736x/a2/5a/32/a25a32cdba5932e18e70e13938e9f54f.jpg" alt="Formes énigmatiques" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="photo-title">Chaos ordonné</h3>
+                        <p class="photo-date">2023</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 12 - Abstrait (tall) -->
+                <div class="gallery-item gallery-item--tall" data-category="abstract">
+                    <img src="https://i.pinimg.com/736x/ba/c7/12/bac7127211c77188ea44b7e5042425ad.jpg" alt="Abstraction verticale" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="photo-title">Vertiges</h3>
+                        <p class="photo-date">2024</p>
+                    </div>
+                </div>
+                
+                <!-- OMBRES supplémentaires -->
+                <!-- Photo 13 - Ombres -->
+                <div class="gallery-item" data-category="shadows">
+                    <img src="https://i.pinimg.com/736x/f9/71/4b/f9714b49336702f007ba4b30984f7910.jpg" alt="Figure solitaire" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="photo-title">Solitude</h3>
+                        <p class="photo-date">2024</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 14 - Lumière (wide) -->
+                <div class="gallery-item gallery-item--wide" data-category="light">
+                    <img src="https://i.pinimg.com/736x/8c/30/4a/8c304a5a091be8a9a0e9c57440e776cb.jpg" alt="Lumière panoramique" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="photo-title">Horizon lumineux</h3>
+                        <p class="photo-date">2023</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 15 - Abstrait -->
+                <div class="gallery-item" data-category="abstract">
+                    <img src="https://i.pinimg.com/736x/15/ff/7c/15ff7c70ce9113dd310a0c8556e57af4.jpg" alt="Motifs abstraits" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="photo-title">Fragments</h3>
+                        <p class="photo-date">2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">02</span>
+                <span class="title-text">Qui suis-je ?</span>
+            </h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-paragraph">
+                        Je suis l'œil qui observe sans être vu. 
+                        Dans l'ombre des métropoles endormies, 
+                        je capture ces instants fugaces où la réalité 
+                        révèle ses failles.
+                    </p>
+                    <p class="about-paragraph">
+                        Mon appareil est le prolongement de mon âme errante. 
+                        Chaque cliché est une fenêtre vers l'invisible, 
+                        une invitation à regarder au-delà du visible.
+                    </p>
+                    <p class="about-paragraph">
+                        Mon identité ? Elle n'a pas d'importance. 
+                        Ce qui compte, c'est ce que vous ressentez 
+                        face à ces fragments d'éternité volés au temps.
+                    </p>
+                </div>
+                
+                <!-- Citation mystérieuse -->
+                <blockquote class="about-quote">
+                    <p>"La véritable photographie commence là où s'arrête le regard."</p>
+                    <cite>- L'Œil Invisible</cite>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">03</span>
+                <span class="title-text">Établir le contact</span>
+            </h2>
+            
+            <div class="contact-content">
+                <p class="contact-intro">
+                    Pour ceux qui souhaitent franchir le voile...
+                </p>
+                
+                <!-- Formulaire de contact fictif -->
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Votre nom (ou pseudonyme)</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Votre email</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="message">Votre message</label>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">
+                        <span>Envoyer dans l'éther</span>
+                        <svg class="submit-arrow" width="20" height="20" viewBox="0 0 20 20">
+                            <path d="M3 10h14M12 5l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </button>
+                </form>
+                
+                <!-- Info contact mystérieuse -->
+                <div class="contact-info">
+                    <p class="info-text">
+                        Les messages arrivent toujours à destination,<br>
+                        même sans adresse.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-copyright">
+                    © 2024 L'Œil Invisible - Tous droits réservés aux ombres
+                </p>
+                
+                <!-- Liens sociaux (fictifs) -->
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z" fill="currentColor"/>
+                            <path d="M12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4z" fill="currentColor"/>
+                            <circle cx="18.406" cy="5.594" r="1.44" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox pour visualisation des photos -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Fermer">×</button>
+        <img src="" alt="" class="lightbox-image">
+    </div>
+
+    <!-- Scripts JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>
